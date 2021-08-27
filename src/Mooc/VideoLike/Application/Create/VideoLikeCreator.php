@@ -6,6 +6,7 @@ use CodelyTv\Mooc\Shared\Domain\Users\UserId;
 use CodelyTv\Mooc\Shared\Domain\Videos\VideoId;
 use CodelyTv\Mooc\VideoLike\Domain\VideoLike;
 use CodelyTv\Mooc\VideoLike\Domain\VideoLikeId;
+use CodelyTv\Mooc\VideoLike\Domain\VideoLikeRepository;
 
 class VideoLikeCreator
 {
