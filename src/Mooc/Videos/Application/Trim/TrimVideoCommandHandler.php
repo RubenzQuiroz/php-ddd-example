@@ -4,7 +4,7 @@ declare (strict_types=1);
 
 namespace CodelyTv\Mooc\Videos\Application\Trim;
 
-use CodelyTv\Mooc\Videos\Domain\VideoId;
+use CodelyTv\Mooc\Videos\Domain\VideoIdDel;
 use CodelyTv\Shared\Domain\SecondsInterval;
 
 final class TrimVideoCommandHandler
@@ -15,7 +15,7 @@ final class TrimVideoCommandHandler
 
     public function __invoke(TrimVideoCommand $command)
     {
-        $id       = new VideoId($command->videoId());
+        $id       = new VideoIdDel($command->videoId());
         $interval = SecondsInterval::fromValues($command->keepFromSecond(), $command->keepToSecond());
 
         $this->trimmer->trim($id, $interval);

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Mooc\Videos\Infrastructure\Persistence;
 
 use CodelyTv\Mooc\Videos\Domain\Video;
-use CodelyTv\Mooc\Videos\Domain\VideoId;
+use CodelyTv\Mooc\Videos\Domain\VideoIdDel;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 use CodelyTv\Mooc\Videos\Domain\Videos;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
@@ -27,7 +27,7 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
         $this->persist($video);
     }
 
-    public function search(VideoId $id): ?Video
+    public function search(VideoIdDel $id): ?Video
     {
         return $this->repository(Video::class)->find($id);
     }

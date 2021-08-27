@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Mooc\Videos\Domain;
 
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
+use CodelyTv\Mooc\Shared\Domain\Videos\VideoId;
 use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
@@ -12,19 +13,19 @@ final class Video extends AggregateRoot
 {
     public function __construct(
         private VideoId $id,
-        private VideoType $type,
+        private VideoType  $type,
         private VideoTitle $title,
-        private VideoUrl $url,
-        private CourseId $courseId
+        private VideoUrl   $url,
+        private CourseId   $courseId
     ) {
     }
 
     public static function create(
         VideoId $id,
-        VideoType $type,
+        VideoType  $type,
         VideoTitle $title,
-        VideoUrl $url,
-        CourseId $courseId
+        VideoUrl   $url,
+        CourseId   $courseId
     ): Video {
         $video = new self($id, $type, $title, $url, $courseId);
 
@@ -42,7 +43,7 @@ final class Video extends AggregateRoot
         $this->title = $newTitle;
     }
 
-    public function id(): VideoId
+    public function id(): VideoIdDel
     {
         return $this->id;
     }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Mooc\Videos\Application\Update;
 
 use CodelyTv\Mooc\Videos\Domain\VideoFinder;
-use CodelyTv\Mooc\Videos\Domain\VideoId;
+use CodelyTv\Mooc\Videos\Domain\VideoIdDel;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 
@@ -18,7 +18,7 @@ final class VideoTitleUpdater
         $this->finder = new VideoFinder($repository);
     }
 
-    public function __invoke(VideoId $id, VideoTitle $newTitle): void
+    public function __invoke(VideoIdDel $id, VideoTitle $newTitle): void
     {
         $video = $this->finder->__invoke($id);
 

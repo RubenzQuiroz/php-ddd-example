@@ -3,6 +3,7 @@
 namespace CodelyTv\Mooc\Videos\Infrastructure\Videos;
 
 use CodelyTv\Mooc\Videos\Application\Create\CreateVideoCommand;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use http\Env\Request;
 
 class VideoPostController extends \CodelyTv\Shared\Infrastructure\Symfony\ApiController
@@ -15,11 +16,12 @@ class VideoPostController extends \CodelyTv\Shared\Infrastructure\Symfony\ApiCon
 
     public function __invoke(Request $request){
         $command = new CreateVideoCommand(
-            $request->get('request_id'),
-            $request->get('request_type'),
-            $request->get('request_title'),
-            $request->get('request_courde_id')
+            new Uuid($request->get('request_id')),
+            $request->get('id'),
+            $request->get('title'),
+            $request->get('courde_id')
         );
         $this->dispatch($command);
+        return new ApiHttpCreatedResponse();
     }
 }
