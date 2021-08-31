@@ -15,7 +15,7 @@ class VideoPatchController extends \CodelyTv\Shared\Infrastructure\Symfony\ApiCo
     }
 
     public function __invoke(Request $request){
-        $command = new VideoTitleUpdater(
+        $command = new UpdateVideoCommand(
             $request->get('id'),
             $request->get('title')
         );
