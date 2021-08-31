@@ -20,5 +20,6 @@ class VideoLikeCreator
     public function create(VideoLikeId $id,UserId $userId,VideoId $videoId){
         $videoLike = VideoLike::like($id,$userId,$videoId);
         $this->save($videoLike);
+        $videoLike->pullDomainEvents();
     }
 }
