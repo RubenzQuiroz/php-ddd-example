@@ -14,7 +14,7 @@ class FindVideoCommentsQueryHandler
         $this->finder = pipe(new VideoCommentsResponseConverter(),$finder);
     }
 
-    public function __invoke(FindVideoCommentsQuery $findVideoCommentsQuery)
+    public function __invoke(FindVideoCommentsQuery $findVideoCommentsQuery) : VideoCommentsResponse
     {
         $videoId = new VideoId($findVideoCommentsQuery->getId());
         return apply($this->finder,[$videoId]);
